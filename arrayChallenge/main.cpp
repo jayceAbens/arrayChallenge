@@ -7,7 +7,6 @@ using namespace std;
 int main()
 {
 	int array[100];
-	int evenOddArray[100];
 	int tempArrayElement;
 
 	srand(time(0));
@@ -24,7 +23,8 @@ int main()
 	{
 		for (int j = i + 1; j < 100; j++)
 		{
-			if (array[j] < array[i]) // comparison between two array elements is made, if first is greater than second, the values are swapped
+			if ((array[j]%2 == 0 && array[i]%2 == 1) || // if second element is even and the first is odd, they are swapped
+				(array[j]%2 == array[i]%2 && array[j] < array[i])) // if the two elements are both odd/even and the first is greater than second, they are swapped
 			{
 				tempArrayElement = array[i]; // the first integer of the comparison is stored in a temporary variable
 				array[i] = array[j]; //the first element is set as the second element
